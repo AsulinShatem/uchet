@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище PROGADB1ModelContainer" CdmEntityContainer="PROGADB1Entities6">
+    <EntitySetMapping Name="archiveReports">
+      <EntityTypeMapping TypeName="PROGADB1Model.archiveReports">
+        <MappingFragment StoreEntitySet="archiveReports">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="reportsId" ColumnName="reportsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reports">
+      <EntityTypeMapping TypeName="PROGADB1Model.reports">
+        <MappingFragment StoreEntitySet="reports">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="priceForHour" ColumnName="priceForHour" />
+          <ScalarProperty Name="hours" ColumnName="hours" />
+          <ScalarProperty Name="zarplata" ColumnName="zarplata" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="role">
+      <EntityTypeMapping TypeName="PROGADB1Model.role">
+        <MappingFragment StoreEntitySet="role">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="priceForHour" ColumnName="priceForHour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="PROGADB1Model.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+          <ScalarProperty Name="adress" ColumnName="adress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

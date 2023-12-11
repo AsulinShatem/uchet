@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище PROGADB1Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="archiveReports">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="reportsId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="reports">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="priceForHour" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="hours" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="zarplata" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="priceForHour" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="role" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dateOfBirth" Type="date" Nullable="false" />
+    <Property Name="phonenumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="adress" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_archiveReports_reports">
+    <End Role="reports" Type="Self.reports" Multiplicity="1" />
+    <End Role="archiveReports" Type="Self.archiveReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reports">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="archiveReports">
+        <PropertyRef Name="reportsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище PROGADB1ModelContainer">
+    <EntitySet Name="archiveReports" EntityType="Self.archiveReports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="reports" EntityType="Self.reports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_archiveReports_reports" Association="Self.FK_archiveReports_reports">
+      <End Role="reports" EntitySet="reports" />
+      <End Role="archiveReports" EntitySet="archiveReports" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

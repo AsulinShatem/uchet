@@ -14,11 +14,20 @@ namespace magnit.Model
     
     public partial class reports
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public reports()
+        {
+            this.archiveReports = new HashSet<archiveReports>();
+        }
+    
         public int id { get; set; }
         public string role { get; set; }
         public string priceForHour { get; set; }
         public string hours { get; set; }
         public string zarplata { get; set; }
         public string fullName { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<archiveReports> archiveReports { get; set; }
     }
 }

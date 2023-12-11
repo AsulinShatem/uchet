@@ -22,7 +22,13 @@ namespace magnit
         public rep_win()
         {
             InitializeComponent();
-            PolAdm.Text = "Администратор";
+            lblStatus.Content = MainWindow.Globals.role;
+            lblname.Content = MainWindow.Globals.fullName;
+            if (MainWindow.Globals.role != "Администратор")
+            {
+                Add_Btn.Visibility = Visibility.Hidden;
+                Del_Btn.Visibility = Visibility.Hidden;
+            }
         }
         private void Button_Click_Account(object sender, RoutedEventArgs e)
         {
@@ -53,29 +59,145 @@ namespace magnit
         {
             this.DragMove();
         }
-        private void Button_Click_Reports(object sender, RoutedEventArgs e)
+        private async void Button_Click_Reports(object sender, RoutedEventArgs e)
         {
+            if (!isWindowOpen)
+            {
+                isWindowOpen = true;
+
+                // Создаем новое окно и открываем его
+                var newWindow = new LoadingWindow();
+                newWindow.Show();
+
+                // Блокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window != newWindow)
+                    {
+                        window.IsEnabled = false;
+                    }
+                }
+
+                // Ожидаем 5 секунд и закрываем окно
+                await Task.Delay(500);
+                newWindow.Close();
+
+                // Разблокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    window.IsEnabled = true;
+                }
+
+                isWindowOpen = false;
+            }
             rep_win rep_win = new rep_win();
             rep_win.Show();
             Close();
         }
 
-        private void Button_Click_Main(object sender, RoutedEventArgs e)
+        private async void Button_Click_Main(object sender, RoutedEventArgs e)
         {
+            if (!isWindowOpen)
+            {
+                isWindowOpen = true;
+
+                // Создаем новое окно и открываем его
+                var newWindow = new LoadingWindow();
+                newWindow.Show();
+
+                // Блокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window != newWindow)
+                    {
+                        window.IsEnabled = false;
+                    }
+                }
+
+                // Ожидаем 5 секунд и закрываем окно
+                await Task.Delay(500);
+                newWindow.Close();
+
+                // Разблокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    window.IsEnabled = true;
+                }
+
+                isWindowOpen = false;
+            }
             var Main_Window = new Main();
             Main_Window.Show();
             this.Close();
         }
 
-        private void Button_Click_Staff(object sender, RoutedEventArgs e)
+        private async void Button_Click_Staff(object sender, RoutedEventArgs e)
         {
+            if (!isWindowOpen)
+            {
+                isWindowOpen = true;
+
+                // Создаем новое окно и открываем его
+                var newWindow = new LoadingWindow();
+                newWindow.Show();
+
+                // Блокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window != newWindow)
+                    {
+                        window.IsEnabled = false;
+                    }
+                }
+
+                // Ожидаем 5 секунд и закрываем окно
+                await Task.Delay(500);
+                newWindow.Close();
+
+                // Разблокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    window.IsEnabled = true;
+                }
+
+                isWindowOpen = false;
+            }
             staff staff = new staff();
             staff.Show();
             this.Close();
         }
 
-        private void Button_Click_Exit(object sender, RoutedEventArgs e)
+        private async void Button_Click_Exit(object sender, RoutedEventArgs e)
         {
+            if (!isWindowOpen)
+            {
+                isWindowOpen = true;
+
+                // Создаем новое окно и открываем его
+                var newWindow = new LoadingWindow();
+                newWindow.Show();
+
+                // Блокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window != newWindow)
+                    {
+                        window.IsEnabled = false;
+                    }
+                }
+
+                // Ожидаем 5 секунд и закрываем окно
+                await Task.Delay(500);
+                newWindow.Close();
+
+                // Разблокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    window.IsEnabled = true;
+                }
+
+                isWindowOpen = false;
+            }
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             Close();
@@ -85,7 +207,7 @@ namespace magnit
             Reports_DataGrid.ItemsSource = AppData.db.reports.ToList();
         }
 
-        private void Del_Btn_Click(object sender, RoutedEventArgs e)
+        private async void Del_Btn_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Вы действительно хотите удалить запись?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
@@ -94,6 +216,35 @@ namespace magnit
                 AppData.db.SaveChanges();
                 MessageBox.Show("Вы успешно удалили запись!");
                 Reports_DataGrid.ItemsSource = AppData.db.reports.ToList();
+                if (!isWindowOpen)
+                {
+                    isWindowOpen = true;
+
+                    // Создаем новое окно и открываем его
+                    var newWindow = new LoadingWindow();
+                    newWindow.Show();
+
+                    // Блокируем все остальные окна
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        if (window != newWindow)
+                        {
+                            window.IsEnabled = false;
+                        }
+                    }
+
+                    // Ожидаем 5 секунд и закрываем окно
+                    await Task.Delay(500);
+                    newWindow.Close();
+
+                    // Разблокируем все остальные окна
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        window.IsEnabled = true;
+                    }
+
+                    isWindowOpen = false;
+                }
             }
         }
 
@@ -103,19 +254,85 @@ namespace magnit
             addEditPage.Show();
         }
 
-        private void refresh_Btn_Click(object sender, RoutedEventArgs e)
+        private async void refresh_Btn_Click(object sender, RoutedEventArgs e)
         {
             Reports_DataGrid.ItemsSource = AppData.db.reports.ToList();
+            if (!isWindowOpen)
+            {
+                isWindowOpen = true;
+
+                // Создаем новое окно и открываем его
+                var newWindow = new LoadingWindow();
+                newWindow.Show();
+
+                // Блокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window != newWindow)
+                    {
+                        window.IsEnabled = false;
+                    }
+                }
+
+                // Ожидаем 5 секунд и закрываем окно
+                await Task.Delay(500);
+                newWindow.Close();
+
+                // Разблокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    window.IsEnabled = true;
+                }
+
+                isWindowOpen = false;
+            }
         }
 
         private void Edit_Btn_Click(object sender, RoutedEventArgs e)
         {
-            AddEditRep addPage = new AddEditRep((sender as Button).DataContext as reports);
-            addPage.Show();
+            if (MainWindow.Globals.role != "Администратор")
+            {
+                MessageBox.Show("Вам не доступно редактирование. Обратитесь к администратору для редактирования");
+            }
+            else
+            {
+                AddEditRep addPage = new AddEditRep((sender as Button).DataContext as reports);
+                addPage.Show();
+            }
         }
-        private void export_Btn_Click(object sender, RoutedEventArgs e)
+        private bool isWindowOpen = false;
+        private async void export_Btn_Click(object sender, RoutedEventArgs e)
         {
-            var allRequest = PROGADB1Entities2.GetContext().reports.ToList();
+            if (!isWindowOpen)
+            {
+                isWindowOpen = true;
+
+                // Создаем новое окно и открываем его
+                var newWindow = new LoadingWindow();
+                newWindow.Show();
+
+                // Блокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window != newWindow)
+                    {
+                        window.IsEnabled = false;
+                    }
+                }
+
+                // Ожидаем 5 секунд и закрываем окно
+                await Task.Delay(500);
+                newWindow.Close();
+
+                // Разблокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    window.IsEnabled = true;
+                }
+
+                isWindowOpen = false;
+            }
+            var allRequest = PROGADB1Entities.GetContext().reports.ToList();
 
             var application = new Word.Application();
 
@@ -177,6 +394,55 @@ namespace magnit
             }
 
             application.Visible = true;
+        }
+
+        private async void Button_Click_Archive_Reports(object sender, RoutedEventArgs e)
+        {
+            if (!isWindowOpen)
+            {
+                isWindowOpen = true;
+
+                // Создаем новое окно и открываем его
+                var newWindow = new LoadingWindow();
+                newWindow.Show();
+
+                // Блокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window != newWindow)
+                    {
+                        window.IsEnabled = false;
+                    }
+                }
+
+                // Ожидаем 5 секунд и закрываем окно
+                await Task.Delay(500);
+                newWindow.Close();
+
+                // Разблокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    window.IsEnabled = true;
+                }
+
+                isWindowOpen = false;
+            }
+            ArchiveReports archiveReports = new ArchiveReports();
+            archiveReports.Show();
+            this.Close();
+        }
+
+        private void Archive_Click_Btn(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Вы действительно хотите архивировать запись?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                //говно не работает(((
+                /*var CurrentCar = Reports_DataGrid.SelectedItem as reports;
+                AppData.db.archiveReports.Add(CurrentCar);
+                AppData.db.SaveChanges();
+                MessageBox.Show("Информация архивирована!");
+                Close();*/
+            }
         }
     }
 }

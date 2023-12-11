@@ -13,15 +13,17 @@
         WindowStartupLocation="CenterScreen"
         Title="CUMBIA4.20" Height="720" Width="1280" MinWidth="1280" MinHeight="720">
     <Grid>
+        
         <Grid Background="#FF151718">
             <Rectangle Fill="#FF262829" Height="41" VerticalAlignment="Top"/>
             <Grid HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="104"/>
-
+            <Button x:Name="Archive_Btn" Click="Archive_Click_Btn" Content="АРХИВИРОВАТЬ!" HorizontalAlignment="Left" Margin="255,51,0,0" VerticalAlignment="Top"/>
             <Button BorderBrush="{x:Null}" Click="Button_Click_1_1" Content="×" Background="{x:Null}" Foreground="#FFD9D9D9" FontFamily="Arial" FontSize="20" HorizontalAlignment="Right" Width="34" Height="41" VerticalAlignment="Top"/>
             <Button HorizontalAlignment="Right" Width="30" BorderBrush="{x:Null}" Click="Button_Click_2_1" Content="−" Background="{x:Null}" Foreground="#FFD9D9D9" FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="0,0,61,0" Height="41" VerticalAlignment="Top"/>
             <Button Content="▢" HorizontalAlignment="Right" Click="Button_Click" Width="27" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFD9D9D9" FontFamily="Arial" FontSize="14" Margin="0,0,34,0" Height="41" VerticalAlignment="Top"/>
             <Button HorizontalAlignment="Left" Margin="66,0,0,0" VerticalAlignment="Top" Width="57" Height="41" BorderBrush="{x:Null}" Click="Button_Click_Main" Content="Главная" Foreground="#FFD9D9D9" Background="{x:Null}" FontSize="14" FontFamily="Arial"/>
             <Rectangle HorizontalAlignment="Left" Height="4" Margin="205,37,0,0" VerticalAlignment="Top" Width="59" Fill="#FFF9E423"/>
+            <Button HorizontalAlignment="Left" Margin="264,0,0,0" VerticalAlignment="Top" Width="59" Height="41" BorderBrush="{x:Null}" Click="Button_Click_Archive_Reports" Content="Архив" Foreground="#FFD9D9D9" Background="{x:Null}" FontSize="14" FontFamily="Arial"/>
             <Button HorizontalAlignment="Left" Margin="205,0,0,0" VerticalAlignment="Top" Width="59" Height="41" BorderBrush="{x:Null}" Click="Button_Click_Reports" Content="Отчёты" Foreground="#FFD9D9D9" Background="{x:Null}" FontSize="14" FontFamily="Arial"/>
             <Button HorizontalAlignment="Left" Margin="123,0,0,0" VerticalAlignment="Top" Width="82" Height="41" BorderBrush="{x:Null}" Click="Button_Click_Staff" Content="Сотрудники" Foreground="#FFD9D9D9" Background="{x:Null}" FontSize="14" FontFamily="Arial"/>
             <Grid Margin="0,41,0,0" Height="39" VerticalAlignment="Top" HorizontalAlignment="Left" Width="238">
@@ -45,6 +47,7 @@
                         <ImageBrush ImageSource="images/Image2.png"/>
                     </Button.Background>
                 </Button>
+
             </Grid>
             <DataGrid x:Name="Reports_DataGrid" BorderBrush="{x:Null}" IsReadOnly="True" AutoGenerateColumns="False" Margin="0,85,0,0" Background="{x:Null}">
                 <DataGrid.Columns>
@@ -80,8 +83,8 @@
             <Grid/>
             <Grid>
                 <Label Content="Статус" HorizontalAlignment="Left" Margin="42,105,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" FontFamily="Arial" Height="25"/>
-                <Label Content="Elian Ángel Valenzuela" HorizontalAlignment="Left" Margin="129,78,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" Height="27" Width="155" FontFamily="Arial"/>
-                <TextBlock x:Name="PolAdm" Text="Администратор" HorizontalAlignment="Left" Margin="134,110,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" Width="103" Height="20" FontFamily="Arial"/>
+                <Label x:Name="lblname" Content="" HorizontalAlignment="Left" Margin="128,78,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" Height="27" Width="156" FontFamily="Arial"/>
+                <Label x:Name="lblStatus" Content="" HorizontalAlignment="Left" Margin="134,108,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" Width="136" Height="25" FontFamily="Arial"/>
                 <Button HorizontalAlignment="Center" Margin="0,144,0,0" VerticalAlignment="Top" Width="232" Height="27" BorderBrush="{x:Null}" Click="Button_Click_Exit" Content="Выйти из аккаунта" FontFamily="Arial" FontSize="14">
                     <Button.Background>
                         <ImageBrush ImageSource="images/Lightsad.png"/>

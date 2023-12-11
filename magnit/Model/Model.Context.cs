@@ -13,17 +13,18 @@ namespace magnit.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PROGADB1Entities2 : DbContext
+    public partial class PROGADB1Entities : DbContext
     {
-        public static PROGADB1Entities2 _instance;
-        public PROGADB1Entities2()
-            : base("name=PROGADB1Entities2")
+        public PROGADB1Entities()
+            : base("name=PROGADB1Entities")
         {
         }
-        public static PROGADB1Entities2 GetContext()
+
+        private static PROGADB1Entities _instance;
+        public static PROGADB1Entities GetContext()
         {
             if (_instance == null)
-                _instance = new PROGADB1Entities2();
+                _instance = new PROGADB1Entities();
             return _instance;
         }
 
@@ -32,8 +33,9 @@ namespace magnit.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<archiveReports> archiveReports { get; set; }
         public virtual DbSet<reports> reports { get; set; }
         public virtual DbSet<role> role { get; set; }
-        public virtual DbSet<user> user { get; set; }
+        public virtual DbSet<userloggs> userloggs { get; set; }
     }
 }

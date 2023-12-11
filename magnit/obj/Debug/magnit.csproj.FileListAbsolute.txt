@@ -25,7 +25,6 @@ F:\magnit\obj\Debug\magnit.exe
 F:\magnit\obj\Debug\magnit.pdb
 F:\magnit\obj\Debug\staff.g.cs
 E:\magnit\obj\Debug\magnit.csproj.AssemblyReference.cache
-E:\magnit\obj\Debug\magnit.csproj.SuggestedBindingRedirects.cache
 E:\magnit\obj\Debug\magnit.csproj.ResolveComReference.cache
 E:\magnit\obj\Debug\Login_Window.g.cs
 E:\magnit\obj\Debug\Main_Window.g.cs
@@ -58,11 +57,129 @@ F:\magnit\obj\Debug\magnit.csproj.ResolveComReference.cache
 F:\magnit\obj\Debug\AddEditRep.g.cs
 F:\magnit\obj\Debug\AddEditRep.baml
 F:\magnit\obj\Debug\staff.baml
-F:\magnit\obj\Debug\AddEditRep2.g.cs
-F:\magnit\obj\Debug\AddEditRep2.baml
 F:\magnit\obj\Debug\rep_win.g.cs
 F:\magnit\obj\Debug\rep_win.baml
 E:\magnit\obj\Debug\rep_win.g.cs
 E:\magnit\obj\Debug\rep_win.baml
 E:\magnit\obj\Debug\AddEditPage.g.cs
 E:\magnit\obj\Debug\AddEditPage.baml
+C:\Users\User\Desktop\флешка\magnit\bin\Debug\magnit.exe.config
+C:\Users\User\Desktop\флешка\magnit\bin\Debug\magnit.exe
+C:\Users\User\Desktop\флешка\magnit\bin\Debug\magnit.pdb
+C:\Users\User\Desktop\флешка\magnit\bin\Debug\EntityFramework.dll
+C:\Users\User\Desktop\флешка\magnit\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\флешка\magnit\bin\Debug\EntityFramework.xml
+C:\Users\User\Desktop\флешка\magnit\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\флешка\magnit\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\magnit.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\magnit.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\magnit.csproj.ResolveComReference.cache
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\AddEditPage.g.cs
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\AddEditRep.g.cs
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\Login_Window.g.cs
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\Main_Window.g.cs
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\rep_win.g.cs
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\staff.g.cs
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\App.g.cs
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\magnit_Content.g.cs
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\magnit_MarkupCompile.cache
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\magnit_MarkupCompile.lref
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\AddEditPage.baml
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\AddEditRep.baml
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\Login_Window.baml
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\Main_Window.baml
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\rep_win.baml
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\staff.baml
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\magnit.g.resources
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\magnit.Properties.Resources.resources
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\magnit.csproj.GenerateResource.cache
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\magnit.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\magnit.csproj.CopyComplete
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\magnit.exe
+C:\Users\User\Desktop\флешка\magnit\obj\Debug\magnit.pdb
+F:\magnit\obj\Debug\AddEditPage.g.cs
+F:\magnit\obj\Debug\AddEditPage.baml
+F:\magnit\obj\Debug\LoadingWindow.g.cs
+F:\magnit\obj\Debug\LoadingWindow.baml
+E:\magnit\obj\Debug\LoadingWindow.g.cs
+E:\magnit\obj\Debug\LoadingWindow.baml
+F:\magnit\obj\Debug\ArchiveReports.g.cs
+F:\magnit\obj\Debug\ArchiveReports.baml
+E:\Дурак диббил\magnit\obj\Debug\magnit.csproj.AssemblyReference.cache
+E:\Дурак диббил\magnit\obj\Debug\magnit.csproj.ResolveComReference.cache
+E:\Дурак диббил\magnit\obj\Debug\AddEditPage.g.cs
+E:\Дурак диббил\magnit\obj\Debug\AddEditRep.g.cs
+E:\Дурак диббил\magnit\obj\Debug\ArchiveReports.g.cs
+E:\Дурак диббил\magnit\obj\Debug\LoadingWindow.g.cs
+E:\Дурак диббил\magnit\obj\Debug\Login_Window.g.cs
+E:\Дурак диббил\magnit\obj\Debug\Main_Window.g.cs
+E:\Дурак диббил\magnit\obj\Debug\rep_win.g.cs
+E:\Дурак диббил\magnit\obj\Debug\staff.g.cs
+E:\Дурак диббил\magnit\obj\Debug\App.g.cs
+E:\Дурак диббил\magnit\obj\Debug\magnit_Content.g.cs
+E:\Дурак диббил\magnit\obj\Debug\magnit_MarkupCompile.cache
+E:\Дурак диббил\magnit\obj\Debug\magnit_MarkupCompile.lref
+E:\Дурак диббил\magnit\obj\Debug\magnit.exe
+E:\Дурак диббил\magnit\obj\Debug\magnit.pdb
+E:\Дурак диббил\magnit\bin\Debug\magnit.exe.config
+E:\Дурак диббил\magnit\bin\Debug\magnit.exe
+E:\Дурак диббил\magnit\bin\Debug\magnit.pdb
+E:\Дурак диббил\magnit\bin\Debug\EntityFramework.dll
+E:\Дурак диббил\magnit\bin\Debug\EntityFramework.SqlServer.dll
+E:\Дурак диббил\magnit\bin\Debug\Microsoft.Office.Interop.Word.dll
+E:\Дурак диббил\magnit\bin\Debug\EntityFramework.xml
+E:\Дурак диббил\magnit\bin\Debug\EntityFramework.SqlServer.xml
+E:\Дурак диббил\magnit\bin\Debug\ru\EntityFramework.resources.dll
+E:\Дурак диббил\magnit\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+E:\Дурак диббил\magnit\obj\Debug\AddEditPage.baml
+E:\Дурак диббил\magnit\obj\Debug\AddEditRep.baml
+E:\Дурак диббил\magnit\obj\Debug\ArchiveReports.baml
+E:\Дурак диббил\magnit\obj\Debug\LoadingWindow.baml
+E:\Дурак диббил\magnit\obj\Debug\Login_Window.baml
+E:\Дурак диббил\magnit\obj\Debug\Main_Window.baml
+E:\Дурак диббил\magnit\obj\Debug\rep_win.baml
+E:\Дурак диббил\magnit\obj\Debug\staff.baml
+E:\Дурак диббил\magnit\obj\Debug\magnit.g.resources
+E:\Дурак диббил\magnit\obj\Debug\magnit.Properties.Resources.resources
+E:\Дурак диббил\magnit\obj\Debug\magnit.csproj.GenerateResource.cache
+E:\Дурак диббил\magnit\obj\Debug\magnit.csproj.CoreCompileInputs.cache
+E:\Дурак диббил\magnit\obj\Debug\magnit.csproj.CopyComplete
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\magnit.csproj.AssemblyReference.cache
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\magnit.csproj.SuggestedBindingRedirects.cache
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\magnit.csproj.ResolveComReference.cache
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\AddEditPage.g.cs
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\AddEditRep.g.cs
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\ArchiveReports.g.cs
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\LoadingWindow.g.cs
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\Login_Window.g.cs
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\Main_Window.g.cs
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\rep_win.g.cs
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\staff.g.cs
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\App.g.cs
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\magnit_Content.g.cs
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\magnit_MarkupCompile.cache
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\magnit_MarkupCompile.lref
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\magnit.exe
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\magnit.pdb
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\bin\Debug\magnit.exe.config
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\bin\Debug\magnit.exe
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\bin\Debug\magnit.pdb
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\bin\Debug\EntityFramework.dll
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\bin\Debug\EntityFramework.xml
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\AddEditPage.baml
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\AddEditRep.baml
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\ArchiveReports.baml
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\LoadingWindow.baml
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\Login_Window.baml
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\Main_Window.baml
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\rep_win.baml
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\staff.baml
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\magnit.g.resources
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\magnit.Properties.Resources.resources
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\magnit.csproj.GenerateResource.cache
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\magnit.csproj.CoreCompileInputs.cache
+C:\Users\Student22_06\Desktop\Дурак диббил\magnit\obj\Debug\magnit.csproj.CopyComplete

@@ -32,9 +32,9 @@ namespace magnit
                 _currentreports = selectedreports;
             }
             DataContext = _currentreports;
-            UsersCmb.ItemsSource = PROGADB1Entities2.GetContext().user.ToList();
-            postCmb.ItemsSource = PROGADB1Entities2.GetContext().role.ToList();
-            priceCmb.ItemsSource = PROGADB1Entities2.GetContext().role.ToList();
+            UsersCmb.ItemsSource = PROGADB1Entities.GetContext().userloggs.ToList();
+            postCmb.ItemsSource = PROGADB1Entities.GetContext().role.ToList();
+            priceCmb.ItemsSource = PROGADB1Entities.GetContext().role.ToList();
         }
 
 
@@ -42,22 +42,51 @@ namespace magnit
         {
             Close();
         }
-
-        private void Add_CL(object sender, RoutedEventArgs e)
+        private bool isWindowOpen = false;
+        private async void Add_CL(object sender, RoutedEventArgs e)
         {
             
-            var CurrentCar = UsersCmb.SelectedItem as user;
+            var CurrentCar = UsersCmb.SelectedItem as userloggs;
             var CurrentRole = postCmb.SelectedItem as role;
             var CurrentHrs = priceCmb.SelectedItem as reports;
 
             if (_currentreports.id >= 0)
-                PROGADB1Entities2.GetContext().reports.AddOrUpdate(_currentreports);
+                PROGADB1Entities.GetContext().reports.AddOrUpdate(_currentreports);
 
             try
             {
-                PROGADB1Entities2.GetContext().SaveChanges();
+                PROGADB1Entities.GetContext().SaveChanges();
                 MessageBox.Show("Информация сохранена!");
                 Close();
+                if (!isWindowOpen)
+                {
+                    isWindowOpen = true;
+
+                    // Создаем новое окно и открываем его
+                    var newWindow = new LoadingWindow();
+                    newWindow.Show();
+
+                    // Блокируем все остальные окна
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        if (window != newWindow)
+                        {
+                            window.IsEnabled = false;
+                        }
+                    }
+
+                    // Ожидаем 5 секунд и закрываем окно
+                    await Task.Delay(500);
+                    newWindow.Close();
+
+                    // Разблокируем все остальные окна
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        window.IsEnabled = true;
+                    }
+
+                    isWindowOpen = false;
+                }
             }
             catch (DbEntityValidationException ex)
             {

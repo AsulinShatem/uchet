@@ -20,8 +20,8 @@ namespace magnit
 
     public partial class AddEditPage : Window
     {
-        private user _currentuser = new user();
-        public AddEditPage(user selecteduser)
+        private userloggs _currentuser = new userloggs();
+        public AddEditPage(userloggs selecteduser)
         {
             InitializeComponent();
             if (selecteduser != null)
@@ -29,15 +29,15 @@ namespace magnit
                 _currentuser = selecteduser;
             }
             DataContext = _currentuser;
-            Post.ItemsSource = PROGADB1Entities2.GetContext().role.ToList();
+            Post.ItemsSource = PROGADB1Entities.GetContext().role.ToList();
         }
 
         private void Otmena_CL(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
-        private void Add_CL(object sender, RoutedEventArgs e)
+        private bool isWindowOpen = false;
+        private async void Add_CL(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
             var CurrentCar = Post.SelectedItem as role;
@@ -61,13 +61,42 @@ namespace magnit
             }
 
             if (_currentuser.id >= 0)
-                PROGADB1Entities2.GetContext().user.AddOrUpdate(_currentuser);
+                PROGADB1Entities.GetContext().userloggs.AddOrUpdate(_currentuser);
 
             try
             {
-                PROGADB1Entities2.GetContext().SaveChanges();
+                PROGADB1Entities.GetContext().SaveChanges();
                 MessageBox.Show("Информация сохранена!");
                 Close();
+                if (!isWindowOpen)
+                {
+                    isWindowOpen = true;
+
+                    // Создаем новое окно и открываем его
+                    var newWindow = new LoadingWindow();
+                    newWindow.Show();
+
+                    // Блокируем все остальные окна
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        if (window != newWindow)
+                        {
+                            window.IsEnabled = false;
+                        }
+                    }
+
+                    // Ожидаем 5 секунд и закрываем окно
+                    await Task.Delay(500);
+                    newWindow.Close();
+
+                    // Разблокируем все остальные окна
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        window.IsEnabled = true;
+                    }
+
+                    isWindowOpen = false;
+                }
             }
             catch (Exception ex)
             {

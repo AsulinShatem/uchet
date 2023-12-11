@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,6 +15,8 @@ using System.Windows.Shapes;
 using magnit;
 using magnit.Model;
 using Word = Microsoft.Office.Interop.Word;
+using static magnit.LoadingWindow;
+
 
 
 namespace WpfApp
@@ -26,11 +29,16 @@ namespace WpfApp
         public staff()
         {
             InitializeComponent();
-            PolAdm.Text = "Администратор";
+            lblStatus.Content = MainWindow.Globals.role;
+            lblname.Content = MainWindow.Globals.fullName;
+            if (MainWindow.Globals.role != "Администратор")
+            {
+                Add_Btn.Visibility = Visibility.Hidden;
+                Del_Btn.Visibility = Visibility.Hidden;
+            }
         }
 
-
-        private void Button_Click_Account(object sender, RoutedEventArgs e)
+            private void Button_Click_Account(object sender, RoutedEventArgs e)
         {
             if (aye.Visibility == Visibility.Hidden)
                 aye.Visibility = Visibility.Visible;
@@ -61,43 +69,167 @@ namespace WpfApp
             this.DragMove();
         }
 
-        private void Button_Click_Reports(object sender, RoutedEventArgs e)
+        private async void Button_Click_Reports(object sender, RoutedEventArgs e)
         {
+            if (!isWindowOpen)
+            {
+                isWindowOpen = true;
+
+                // Создаем новое окно и открываем его
+                var newWindow = new LoadingWindow();
+                newWindow.Show();
+
+                // Блокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window != newWindow)
+                    {
+                        window.IsEnabled = false;
+                    }
+                }
+
+                // Ожидаем 5 секунд и закрываем окно
+                await Task.Delay(500);
+                newWindow.Close();
+
+                // Разблокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    window.IsEnabled = true;
+                }
+
+                isWindowOpen = false;
+            }
             rep_win reports = new rep_win();
             reports.Show();
             Close();
         }
 
-        private void Button_Click_Main(object sender, RoutedEventArgs e)
+        private async void Button_Click_Main(object sender, RoutedEventArgs e)
         {
+            if (!isWindowOpen)
+            {
+                isWindowOpen = true;
+
+                // Создаем новое окно и открываем его
+                var newWindow = new LoadingWindow();
+                newWindow.Show();
+
+                // Блокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window != newWindow)
+                    {
+                        window.IsEnabled = false;
+                    }
+                }
+
+                // Ожидаем 5 секунд и закрываем окно
+                await Task.Delay(500);
+                newWindow.Close();
+
+                // Разблокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    window.IsEnabled = true;
+                }
+
+                isWindowOpen = false;
+            }
             var Main_Window = new Main();
             Main_Window.Show();
             this.Close();
         }
 
-        private void Button_Click_Staff(object sender, RoutedEventArgs e)
+        private async void Button_Click_Staff(object sender, RoutedEventArgs e)
         {
+            if (!isWindowOpen)
+            {
+                isWindowOpen = true;
+
+                // Создаем новое окно и открываем его
+                var newWindow = new LoadingWindow();
+                newWindow.Show();
+
+                // Блокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window != newWindow)
+                    {
+                        window.IsEnabled = false;
+                    }
+                }
+
+                // Ожидаем 5 секунд и закрываем окно
+                await Task.Delay(500);
+                newWindow.Close();
+
+                // Разблокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    window.IsEnabled = true;
+                }
+
+                isWindowOpen = false;
+            }
             staff staff = new staff();
             staff.Show();
             this.Close();
         }
 
-        private void Button_Click_Exit(object sender, RoutedEventArgs e)
+        private async void Button_Click_Exit(object sender, RoutedEventArgs e)
         {
+            if (!isWindowOpen)
+            {
+                isWindowOpen = true;
+
+                // Создаем новое окно и открываем его
+                var newWindow = new LoadingWindow();
+                newWindow.Show();
+
+                // Блокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window != newWindow)
+                    {
+                        window.IsEnabled = false;
+                    }
+                }
+
+                // Ожидаем 5 секунд и закрываем окно
+                await Task.Delay(500);
+                newWindow.Close();
+
+                // Разблокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    window.IsEnabled = true;
+                }
+
+                isWindowOpen = false;
+            }
             var MainWindow = new MainWindow();
             MainWindow.Show();
             this.Close();
         }
-
+        private bool isWindowOpen = false;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Users_DataGrid.ItemsSource = AppData.db.user.ToList();
+            Users_DataGrid.ItemsSource = AppData.db.userloggs.ToList();
         }
 
         private void Edit_Btn_Click(object sender, RoutedEventArgs e)
         {
-            AddEditPage addPage = new AddEditPage((sender as Button).DataContext as user);
-            addPage.Show();
+            if (MainWindow.Globals.role != "Администратор")
+            {
+                MessageBox.Show("Вам не доступно редактирование. Обратитесь к администратору для редактирования");
+            }
+            else
+            {
+                AddEditPage addPage = new AddEditPage((sender as Button).DataContext as userloggs);
+                addPage.Show();
+            }
+                
         }
 
         private void Add_Btn_Click(object sender, RoutedEventArgs e)
@@ -106,26 +238,113 @@ namespace WpfApp
             addEditPage.Show();
         }
 
-        private void Del_Btn_Click(object sender, RoutedEventArgs e)
+        private async void Del_Btn_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Вы действительно хотите удалить запись?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                var CurrentCar = Users_DataGrid.SelectedItem as user;
-                AppData.db.user.Remove(CurrentCar);
+                var CurrentCar = Users_DataGrid.SelectedItem as userloggs;
+                AppData.db.userloggs.Remove(CurrentCar);
                 AppData.db.SaveChanges();
                 MessageBox.Show("Вы успешно удалили звпись!");
-                Users_DataGrid.ItemsSource = AppData.db.user.ToList();
+                Users_DataGrid.ItemsSource = AppData.db.userloggs.ToList();
+                if (!isWindowOpen)
+                {
+                    isWindowOpen = true;
+
+                    // Создаем новое окно и открываем его
+                    var newWindow = new LoadingWindow();
+                    newWindow.Show();
+
+                    // Блокируем все остальные окна
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        if (window != newWindow)
+                        {
+                            window.IsEnabled = false;
+                        }
+                    }
+
+                    // Ожидаем 5 секунд и закрываем окно
+                    await Task.Delay(500);
+                    newWindow.Close();
+
+                    // Разблокируем все остальные окна
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        window.IsEnabled = true;
+                    }
+
+                    isWindowOpen = false;
+                }
             }
         }
 
-        private void refresh_Btn_Click(object sender, RoutedEventArgs e)
+        private async void refresh_Btn_Click(object sender, RoutedEventArgs e)
         {
-            Users_DataGrid.ItemsSource = AppData.db.user.ToList();
+            Users_DataGrid.ItemsSource = AppData.db.userloggs.ToList();
+            if (!isWindowOpen)
+            {
+                isWindowOpen = true;
+
+                // Создаем новое окно и открываем его
+                var newWindow = new LoadingWindow();
+                newWindow.Show();
+
+                // Блокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window != newWindow)
+                    {
+                        window.IsEnabled = false;
+                    }
+                }
+
+                // Ожидаем 5 секунд и закрываем окно
+                await Task.Delay(500);
+                newWindow.Close();
+
+                // Разблокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    window.IsEnabled = true;
+                }
+
+                isWindowOpen = false;
+            }
         }
 
-        private void export_Btn_Click(object sender, RoutedEventArgs e)
+        private async void export_Btn_Click(object sender, RoutedEventArgs e)
         {
-            var allRequest = PROGADB1Entities2.GetContext().user.ToList();
+            if (!isWindowOpen)
+            {
+                isWindowOpen = true;
+
+                // Создаем новое окно и открываем его
+                var newWindow = new LoadingWindow();
+                newWindow.Show();
+
+                // Блокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window != newWindow)
+                    {
+                        window.IsEnabled = false;
+                    }
+                }
+
+                // Ожидаем 5 секунд и закрываем окно
+                await Task.Delay(500);
+                newWindow.Close();
+
+                // Разблокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    window.IsEnabled = true;
+                }
+
+                isWindowOpen = false;
+            }
+            var allRequest = PROGADB1Entities.GetContext().userloggs.ToList();
 
             var application = new Word.Application();
 
@@ -164,6 +383,7 @@ namespace WpfApp
             paymentsTable.Rows[1].Range.Bold = 1;
             paymentsTable.Rows[1].Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
+            
             for (int i = 0; i < allRequest.Count(); i++)
             {
                 var currentCategory = allRequest[i];
@@ -186,8 +406,45 @@ namespace WpfApp
                 cellRange = paymentsTable.Cell(i + 2, 6).Range;
                 cellRange.Text = currentCategory.dateOfBirth.ToString("dd.MM.yyyy");
             }
-
             application.Visible = true;
+            // Устанавливаем таймер на 10 секунд
+
+        }
+
+        private async void Button_Click_Archive_Reports(object sender, RoutedEventArgs e)
+        {
+            if (!isWindowOpen)
+            {
+                isWindowOpen = true;
+
+                // Создаем новое окно и открываем его
+                var newWindow = new LoadingWindow();
+                newWindow.Show();
+
+                // Блокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window != newWindow)
+                    {
+                        window.IsEnabled = false;
+                    }
+                }
+
+                // Ожидаем 5 секунд и закрываем окно
+                await Task.Delay(500);
+                newWindow.Close();
+
+                // Разблокируем все остальные окна
+                foreach (Window window in Application.Current.Windows)
+                {
+                    window.IsEnabled = true;
+                }
+
+                isWindowOpen = false;
+            }
+            ArchiveReports archivee = new ArchiveReports();
+            archivee.Show();
+            this.Close();
         }
     }
 }

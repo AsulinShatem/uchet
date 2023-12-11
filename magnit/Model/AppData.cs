@@ -8,6 +8,6 @@ namespace magnit.Model
 {
     public static class AppData
     {
-        public static PROGADB1Entities2 db = new PROGADB1Entities2();
+        public static PROGADB1Entities db = new PROGADB1Entities();
     }
 }

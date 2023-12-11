@@ -73,7 +73,16 @@
     <Compile Include="AddEditRep.xaml.cs">
       <DependentUpon>AddEditRep.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ArchiveReports.xaml.cs">
+      <DependentUpon>ArchiveReports.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingWindow.xaml.cs">
+      <DependentUpon>LoadingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\AppData.cs" />
+    <Compile Include="Model\archiveReports.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -95,9 +104,10 @@
     <Compile Include="Model\role.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\user.cs">
+    <Compile Include="Model\userloggs.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="RazShivrovka.cs" />
     <Compile Include="rep_win.xaml.cs">
       <DependentUpon>rep_win.xaml</DependentUpon>
     </Compile>
@@ -109,6 +119,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddEditRep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ArchiveReports.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoadingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -236,6 +254,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ico.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>

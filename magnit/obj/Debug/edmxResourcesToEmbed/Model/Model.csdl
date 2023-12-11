@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="PROGADB1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="archiveReports">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="reportsId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="reports" Relationship="Self.FK_archiveReports_reports" FromRole="archiveReports" ToRole="reports" />
+  </EntityType>
   <EntityType Name="reports">
     <Key>
       <PropertyRef Name="id" />
@@ -10,6 +18,7 @@
     <Property Name="hours" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="zarplata" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="fullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="archiveReports" Relationship="Self.FK_archiveReports_reports" FromRole="reports" ToRole="archiveReports" />
   </EntityType>
   <EntityType Name="role">
     <Key>
@@ -19,22 +28,39 @@
     <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="priceForHour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
-  <EntityType Name="user">
+  <EntityType Name="userloggs">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="fullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="dateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="phonenumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="adress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
-  <EntityContainer Name="PROGADB1Entities2" annotation:LazyLoadingEnabled="true">
+  <Association Name="FK_archiveReports_reports">
+    <End Role="reports" Type="Self.reports" Multiplicity="1" />
+    <End Role="archiveReports" Type="Self.archiveReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reports">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="archiveReports">
+        <PropertyRef Name="reportsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PROGADB1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="archiveReports" EntityType="Self.archiveReports" />
     <EntitySet Name="reports" EntityType="Self.reports" />
     <EntitySet Name="role" EntityType="Self.role" />
-    <EntitySet Name="user" EntityType="Self.user" />
+    <EntitySet Name="userloggs" EntityType="Self.userloggs" />
+    <AssociationSet Name="FK_archiveReports_reports" Association="Self.FK_archiveReports_reports">
+      <End Role="reports" EntitySet="reports" />
+      <End Role="archiveReports" EntitySet="archiveReports" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

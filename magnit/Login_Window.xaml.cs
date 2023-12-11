@@ -29,8 +29,10 @@ namespace WpfApp
         }
         public static class Globals
         {
+            public static string fullName;
+            public static string role;
             public static int UserRoles;
-            public static user userinfo { get; set; }
+            public static userloggs userinfo { get; set; }
         }
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -39,7 +41,7 @@ namespace WpfApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var CurrentUser = AppData.db.user.FirstOrDefault(u => u.login == TxbLogin.Text);
+            var CurrentUser = AppData.db.userloggs.FirstOrDefault(u => u.login == TxbLogin.Text);
             if (CurrentUser != null)
             {
                 TxbPass.IsEnabled = true;
@@ -56,7 +58,8 @@ namespace WpfApp
         }
         private async void Button_Click_22(object sender, RoutedEventArgs e)
         {
-            var CurrentUser1 = AppData.db.user.FirstOrDefault(u => u.login == TxbLogin.Text && u.password == TxbPass.Password);
+            var passUser = RazShivrovka.hashPassword(TxbPass.Text);
+            var CurrentUser1 = AppData.db.userloggs.FirstOrDefault(u => u.login == TxbLogin.Text && u.password == passUser);
             if (CurrentUser1 != null)
             {
                 if (Auth_Win_1.Visibility == Visibility.Hidden)
@@ -66,6 +69,8 @@ namespace WpfApp
                 Auth_Btn_2.IsEnabled = false;
                 VVOD.Focus();
                 Globals.userinfo = CurrentUser1;
+                Globals.role = CurrentUser1.role;
+                Globals.fullName = CurrentUser1.fullName;
                 while (true) //рандомизация кода и сброс кода каждые 10 секунд
                 {
                     Random x = new Random();
@@ -96,11 +101,40 @@ namespace WpfApp
         {
             this.WindowState = WindowState.Minimized;
         }
-
-        private void Next_Btn(object sender, RoutedEventArgs e)
+        private bool isWindowOpen = false;
+        private async void Next_Btn(object sender, RoutedEventArgs e)
         {
             if (VVOD.Text == CODE.Text) //если код верный то переход на другое окно
             {
+                if (!isWindowOpen)
+                {
+                    isWindowOpen = true;
+
+                    // Создаем новое окно и открываем его
+                    var newWindow = new LoadingWindow();
+                    newWindow.Show();
+
+                    // Блокируем все остальные окна
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        if (window != newWindow)
+                        {
+                            window.IsEnabled = false;
+                        }
+                    }
+
+                    // Ожидаем 5 секунд и закрываем окно
+                    await Task.Delay(500);
+                    newWindow.Close();
+
+                    // Разблокируем все остальные окна
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        window.IsEnabled = true;
+                    }
+
+                    isWindowOpen = false;
+                }
                 var Main = new Main();
                 Main.Show();
                 Close();

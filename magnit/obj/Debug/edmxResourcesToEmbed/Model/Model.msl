@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище PROGADB1ModelContainer" CdmEntityContainer="PROGADB1Entities2">
+  <EntityContainerMapping StorageEntityContainer="Хранилище PROGADB1ModelContainer" CdmEntityContainer="PROGADB1Entities">
+    <EntitySetMapping Name="archiveReports">
+      <EntityTypeMapping TypeName="PROGADB1Model.archiveReports">
+        <MappingFragment StoreEntitySet="archiveReports">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="reportsId" ColumnName="reportsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="reports">
       <EntityTypeMapping TypeName="PROGADB1Model.reports">
         <MappingFragment StoreEntitySet="reports">
@@ -22,9 +30,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="user">
-      <EntityTypeMapping TypeName="PROGADB1Model.user">
-        <MappingFragment StoreEntitySet="user">
+    <EntitySetMapping Name="userloggs">
+      <EntityTypeMapping TypeName="PROGADB1Model.userloggs">
+        <MappingFragment StoreEntitySet="userloggs">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="login" ColumnName="login" />
           <ScalarProperty Name="password" ColumnName="password" />

@@ -12,7 +12,7 @@ namespace magnit.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class user
+    public partial class userloggs
     {
         public int id { get; set; }
         public string login { get; set; }
